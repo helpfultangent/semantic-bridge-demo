@@ -1,4 +1,4 @@
-name: semantic-bridge
+name: semantic-SVO
 channels:
   - conda-forge
   - defaults
