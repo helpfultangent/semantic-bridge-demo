@@ -1,5 +1,5 @@
 {
-  "id": "cookbook-jupyter-template-cpu",
+  "id": "semantic-bridge-demo-cpu",
   "version": "sha-fccfca0",
   "description": "Jupyter Lab environment for CPU",
   "owner": "${apiUserId}",
