@@ -1,116 +1,334 @@
-This template is the first in a [series of tutorials](#next-tutorials) that will guide you through the process of creating a cookbook and running it on TACC systems. From simple ones that run a command to more complex ones that run a Python using conda or a Jupyter Notebook.
+# Semantic Bridge Analysis - TACC Computational Cookbook
 
-## Requirements
+[![TACC](https://img.shields.io/badge/TACC-UT%20Austin-BF5700?style=flat-square)](https://www.tacc.utexas.edu)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)](https://www.python.org)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-- A GitHub account
-- TACC account. If you don't have one, you can request one [here](https://accounts.tacc.utexas.edu/register)
-- To access TACC systems, you should have an [allocation](https://tacc.utexas.edu/use-tacc/allocations/)
-  - You can see your allocations [here](https://ptdatax.tacc.utexas.edu/workbench/allocations/approved)
-  - If you don't have an allocation, you can request one [here](https://portal.tacc.utexas.edu/allocation-request)
+## Overview
 
-## Template Overview
+A computational workflow that **bridges the semantic gap** between human narratives and scientific analysis. This cookbook enables researchers, planners, and decision-makers to systematically translate stakeholder experiences—expressed in everyday language—into actionable scientific data, models, and decision frameworks.
 
-This template creates a cookbook that runs a Jupyter Notebook stored in the repository. The cookbook will download the Jupyter Notebook, install the required Python packages, and execute the notebook in the TACC cluster.
+### The Challenge
 
-The environment and notebook are saved on the TACC storage. Therefore, you can resume the execution of the notebook from where it stopped.
+When communities face complex environmental or infrastructure challenges, they describe their experiences using natural language: *"flooding is getting worse,"* *"our wells taste salty,"* *"we need better drainage."* Scientists and decision-makers need structured methods to connect these narratives to:
 
-### How does it work?
+- Relevant scientific disciplines and expertise
+- Measurable variables and data sources  
+- Computational models and analytical tools
+- Formal decision support frameworks
 
-1. [`app.json`](app.json) file: contains the definition of the Tapis application, including the application's name, description, Docker image, input files, and advanced options.
-2. [`Dockerfile`](Dockerfile): a Docker image is built from the [`Dockerfile`](./Dockerfile). The Docker image defines the runtime environment for the application and the files that will be used by the application.
-3. [`run.sh`](run.sh): contains all the commands that will be executed on the TACC cluster.
-4. [`notebook.ipynb`](notebook.ipynb): a Jupyter Notebook that will be executed by the application.
-5. [`.binder/requirements.txt`](requirements.txt): a file that contains the Python packages that will be installed in the Docker image.
-6. [`.binder/environment.yml`](environment.yml): a file that contains the conda environment that will be installed in the Docker image.
+### The Solution
 
-### Job run script
+This workflow uses **Natural Language Processing (NLP)** and **Machine Learning** to automatically:
 
-The `run.sh` file is used to run the commands and define important variables for the application.
+1. **Analyze text corpora** (interviews, reports, meeting notes, narratives)
+2. **Discover key themes and topics** using Latent Dirichlet Allocation
+3. **Map topics to scientific domains** through a customizable "science backbone" structure
+4. **Extract decision components** (goals, objectives, variables, constraints, indicators)  
+5. **Create semantic links** between natural language terms and standardized Scientific Variable Objects (SVOs)
+6. **Generate visualizations** showing connections between stakeholder perspectives and scientific frameworks
 
-```bash
-#!/bin/bash
-export GIT_REPO_URL="https://github.com/In-For-Disaster-Analytics/Cookbook-Jupyter-Template.git"
-export COOKBOOK_NAME="cookbook-template-jupyter"
-export COOKBOOK_CONDA_ENV="example"
-IS_GPU_JOB=false
+## Key Features
+
+- **Multi-format input:** Process .txt, .json, .docx, and image files (with OCR)
+- **Customizable vocabularies:** Adapt science backbone and SVO definitions to any domain
+- **Interactive visualizations:** Network diagrams, topic distributions, domain coverage charts
+- **Reproducible workflow:** Designed for TACC HPC systems with full provenance tracking
+- **Comprehensive outputs:** CSV files, HTML visualizations, and markdown reports
+- **Scalable architecture:** Process corpora from dozens to thousands of documents
+
+## Use Cases
+
+### Environmental Planning
+- Climate adaptation planning with Arctic communities
+- Coastal resilience decision-making
+- Groundwater management stakeholder engagement
+
+### Infrastructure Decision Support  
+- Urban planning with community input
+- Transportation system analysis
+- Public health facility placement
+
+### Research Applications
+- Participatory modeling projects
+- Mixed-methods research synthesis
+- Community-based participatory research (CBPR)
+- Interdisciplinary problem framing
+
+## Technical Approach
+
+### Analysis Pipeline
+
+```
+Raw Text Documents
+       ↓
+Text Preprocessing & Tokenization
+       ↓
+Topic Discovery (LDA)
+       ↓
+Science Backbone Mapping
+       ↓
+Decision Component Extraction
+       ↓
+SVO Semantic Linking
+       ↓
+Visualization & Reporting
 ```
 
-- `GIT_REPO_URL`: the URL of the GitHub repository created from this template.
-- `COOKBOOK_NAME`: the name of the cookbook. It will be used to create the directory where the files will be stored.
-- `COOKBOOK_CONDA_ENV`: the name of the conda environment that will be created on your TACC account.
-- `IS_GPU_JOB`: a boolean variable that defines if the job will run on a GPU node. If you want to run the job on a GPU node, change the value to `true`.
+### Core Technologies
 
-## Create your Cookbook
+- **NLP:** NLTK, spaCy (Named Entity Recognition, part-of-speech tagging)
+- **Machine Learning:** scikit-learn (TF-IDF, LDA topic modeling)
+- **Document Processing:** python-docx, pytesseract (OCR), Pillow
+- **Network Analysis:** NetworkX (graph structures, layouts)
+- **Visualization:** Plotly (interactive charts), Pandas (data manipulation)
 
-### Create a new repository
+### Scientific Variable Objects (SVOs)
 
-1. Click on the "Use this template" button to create a new repository
-2. Fill in the form with the information for your new repository
+The notebook links natural language to **Scientific Variable Objects** - standardized metadata describing:
+- Standard variable names (CF conventions, COARDS)
+- Units of measurement
+- Data sources and APIs
+- Scientific domain classification
 
-### Build the Docker image
-
-You can skip this step if you don't want to build the Docker image yourself. You can use the Docker image from the registry. [GPU image](https://github.com/orgs/In-For-Disaster-Analytics/packages/container/package/cookbook-jupyter-template-gpu)
-or [CPU image](https://github.com/orgs/In-For-Disaster-Analytics/packages/container/package/cookbook-jupyter-template-cpu)
-
-1. Clone the repository
-2. Build the Docker image using the command below
-
-```bash
-docker build -t cookbook-juptyer-gpu -f Dockerfile.gpu .
-docker build -t cookbook-juptyer-cpu -f Dockerfile.cpu .
+Example SVO mapping:
+```
+Natural Language: "flood depth"
+    ↓
+SVO: water_level
+    ├─ standard_name: "surface_water_elevation"
+    ├─ units: "meters"
+    ├─ data_source: "USGS stream gauges"  
+    └─ domain: "Hydrology"
 ```
 
-3. Push the Docker image to a container registry
+## Getting Started
+
+### Prerequisites
+
+**TACC Account:**
+- Active account: [Register here](https://accounts.tacc.utexas.edu/register)
+- System allocation (startup allocations available)
+- Access to TACC data portals (optional)
+
+**Skills:**
+- Basic Python programming
+- Jupyter notebook familiarity
+- Domain knowledge for vocabulary customization
+
+### Installation
+
+#### On TACC Systems (Recommended)
 
 ```bash
-docker tag cookbook-juptyer-gpu <your-docker-username>/cookbook-juptyer-gpu
-docker push <your-docker-username>/cookbook-juptyer-gpu
-docker tag cookbook-juptyer-cpu <your-docker-username>/cookbook-juptyer-cpu
-docker push <your-docker-username>/cookbook-juptyer-cpu
+# Clone the repository
+git clone https://github.com/helpfultangent/semantic-bridge-demo.git
+cd semantic-bridge-demo
+
+# Load required modules
+module load python3
+module load jupyter
+
+# Start Jupyter notebook
+jupyter notebook semantic_bridge_cookbook.ipynb
 ```
 
-### Modify the `app.json` file
+#### Local Installation
 
-Each app has a unique `id` and `description`. So, you should change these fields to match your app's name and description.
+```bash
+# Clone repository
+git clone https://github.com/helpfultangent/semantic-bridge-demo.git
+cd semantic-bridge-demo
 
-1. Download the `app.json` file
-2. Change the values `id` and `description` fields with the name and description as you wish.
-3. If you built the Docker image, change the `containerImage` field with the image name you used.
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-### Create a New Application on the Cookbook UI
+# Install dependencies
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
 
-1. Go to [Cookbook UI](https://in-for-disaster-analytics.github.io/cookbooks-ui/#/apps)
-2. Click on the "Create Application" button
-3. Fill in the form with the information from your `app.json` file
-4. Click "Create Application"
-5. A new application will be created, and you will be redirected to the application's page
+# Launch notebook
+jupyter notebook semantic_bridge_cookbook.ipynb
+```
 
-### Run your Cookbook
+### Quick Start Example
 
-1. Go to the application's page on the Cookbook UI, if you are not already there
-2. Click on the "Run" button on the right side of the page. This will open the Portal UI
-3. Select the parameters for your job
+1. **Prepare Data:** Place your text files in `data/transcripts/`
 
-   ![Select the parameters](images/parameters.png)
+2. **Run Notebook:** Execute cells sequentially (or use "Run All")
 
-- Update cookbook: Control whether the system will update the existing cookbook with the latest version available. This option is irrelevant if you are running the cookbook for the first time.
-- Update conda environment: Control whether the system will update the existing conda environment with the latest version available. This option is irrelevant if you are running the cookbook for the first time.
+3. **Customize Vocabularies:**
+   - Edit `science_backbone` dictionary (Step 4) for your domains
+   - Expand `svo_vocabulary` (Step 6) with your variables
 
-### Access the notebook
+4. **Review Outputs:** Check `outputs/` folder for:
+   - CSV data files
+   - Interactive HTML visualizations  
+   - Markdown analysis report
 
-1. Go to the Jobs tab
-2. Wait for the job to be ready
-3. Click in the `Open session` button
+## Outputs
 
-   ![Select the parameters](images/open-session.png)
+### Generated Files
 
-## Next templates
+| File | Description |
+|------|-------------|
+| `*_topic_mappings.csv` | Topics linked to scientific domains |
+| `*_components.csv` | Extracted decision components (goals, objectives, etc.) |
+| `*_svo_mappings.csv` | Natural language → SVO semantic links |
+| `*_network.html` | Interactive science backbone network visualization |
+| `*_sunburst.html` | Domain coverage sunburst chart |
+| `*_report.md` | Comprehensive analysis summary with statistics |
 
-- [Running a command](https://github.com/In-For-Disaster-Analytics/Cookbook-Docker-Template)
-- [Running a Python script using conda](https://github.com/In-For-Disaster-Analytics/Cookbook-Conda-Template)
-- [Running a Jupyter Notebook](https://github.com/In-For-Disaster-Analytics/Cookbook-Jupyter-Template)
+### Visualizations
+
+- **Topic Distribution:** Stacked bar charts showing topic proportions across documents
+- **Science Backbone Network:** Interactive graph connecting domains, subdisciplines, and topics  
+- **Domain Coverage:** Sunburst chart showing distribution of scientific variables by domain
+- **Decision Components:** Bar charts of extracted goals, objectives, variables, constraints, indicators
+
+## Customization Guide
+
+### For Your Domain
+
+**Step 1: Define Your Science Backbone** (Step 4, Cell 2)
+
+```python
+science_backbone = {
+    'Your Primary Domain': [
+        'Subdiscipline 1',
+        'Subdiscipline 2',
+        'Subdiscipline 3'
+    ],
+    'Secondary Domain': [
+        'Subdiscipline A',
+        'Subdiscipline B'
+    ]
+}
+```
+
+**Step 2: Create Your SVO Vocabulary** (Step 6, Cell 1)
+
+```python
+svo_vocabulary = {
+    'your_variable': {
+        'standard_name': 'cf_standard_name',
+        'units': 'SI units',
+        'data_source': 'Your data source/API',
+        'keywords': ['keyword1', 'keyword2', 'keyword3'],
+        'domain': 'Your Domain'
+    }
+}
+```
+
+**Step 3: Adjust Parameters**
+
+- `n_topics`: Number of topics to discover (Step 3, Cell 1)
+- `max_vocabulary`: TF-IDF vocabulary size (Step 3, Cell 3)
+- Decision component patterns (Step 5, Cell 1)
+
+### For TACC HPC Integration
+
+**Connect to TACC Data:**
+```python
+# Example: Load from TACC storage
+import requests
+data_url = "https://dataverse.tdl.org/api/access/datafile/YOUR_ID"
+response = requests.get(data_url)
+```
+
+**Scale to Large Corpora:**
+```python
+# Process documents in batches
+from concurrent.futures import ProcessPoolExecutor
+
+with ProcessPoolExecutor(max_workers=8) as executor:
+    results = executor.map(process_document, document_list)
+```
+
+## Example Applications
+
+### Hurricane Harvey Recovery Planning
+
+**Corpus:** 156 stakeholder interviews, 23 community meetings, 8 planning documents
+
+**Discovered Topics:**
+- Topic 1: Flood infrastructure needs → Engineering  
+- Topic 2: Environmental impacts → Environmental Science
+- Topic 3: Economic recovery → Social Science
+
+**Key SVOs Linked:**
+- `flood_depth`, `economic_damage`, `population_at_risk`
+
+**Outcome:** Decision pathways framework connecting community priorities to computational models
+
+### Arctic Infrastructure Adaptation
+
+**Corpus:** 45 Alaska Native community interviews, field observations
+
+**Discovered Topics:**
+- Traditional knowledge indicators → Social Science
+- Permafrost changes → Physical Science  
+- Infrastructure vulnerability → Engineering
+
+**Key SVOs Linked:**
+- `ground_temperature`, `infrastructure_vulnerability`, `sea_ice_extent`
+
+**Outcome:** Semantic links between traditional ecological knowledge and climate model variables
+
+## Citation
+
+If you use this cookbook in your research, please cite:
+
+```bibtex
+@software{semantic_bridge_2025,
+  title = {Semantic Bridge Analysis: A Computational Cookbook for Linking Human Narratives to Scientific Data},
+  author = {Pierce, Suzanne and {TACC Decision Support Team}},
+  year = {2025},
+  institution = {Texas Advanced Computing Center, The University of Texas at Austin},
+  url = {https://github.com/helpfultangent/semantic-bridge-demo}
+}
+```
+
+## Contributing
+
+We welcome contributions! Areas for expansion:
+
+- Additional SVO vocabularies for different domains
+- Integration with semantic web standards (RDF, OWL)
+- Support for multilingual analysis
+- Advanced NLP models (BERT, GPT)
+- Integration with specific data APIs
+
+Please submit issues or pull requests on GitHub.
+
+## License
+
+This project is licensed under the
+## Support
+
+**TACC User Support:**
+- Email: tacc-help@tacc.utexas.edu
+- Documentation: https://docs.tacc.utexas.edu
+- Training: https://learn.tacc.utexas.edu
+
+**Project Issues:**
+- GitHub Issues: https://github.com/helpfultangent/semantic-bridge-demo/issues
+
+## Acknowledgments
+
+- ** Research funding supporting method development provided by:**
+- National Science Foundation, Navigating the New Arctic Program (award No).
+- The Bridging Barriers Program at The University of Texas at Austin through the Planet Texas 2050 initiative.
+- We thank our collaborators at the Museum of South Texas History, Dr. Francisco Guajardo, Rene Ballesteros, Patricia Gomez, Leticia Cavazos, and Melissa Peña, for invaluable assistance in documenting the
+Hurricane Beulah event as an initial test case. We also thank Dr. Clint Dawson for the coastal surge modeling of the Beulah case study used to initiate semantic variable object linking for the test case.
+
+---
+
+**Developed by the Decision Support Office at the Texas Advanced Computing Center**  
+**The University of Texas at Austin**
+
+[TACC](https://www.tacc.utexas.edu) | [UT Austin](https://www.utexas.edu) 
 
 ## Authors
-
-William Mobley - wmobley@tacc.utexas.edu
-Maximiliano Osorio
+Suzanne A. Pierce 
