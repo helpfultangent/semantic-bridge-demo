@@ -2,7 +2,8 @@
 
 [![TACC](https://img.shields.io/badge/TACC-UT%20Austin-BF5700?style=flat-square)](https://www.tacc.utexas.edu)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)](https://www.python.org)
-[![License](https://img.shields.io/badge/License-BSD-3Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-BSD--3--Clause-blue?style=flat-square)](LICENSE)
+[![Citation Required](https://img.shields.io/badge/Citation-Required-orange?style=flat-square)](#citation)
 
 ## Overview
 
@@ -364,7 +365,7 @@ imported into reference managers.
 
 ## Acknowledgments
 
-- ** Research funding supporting method development provided by:**
+** Research funding supporting method development provided by:**
 - National Science Foundation, Navigating the New Arctic Program (Award No 2127353).
 - The Bridging Barriers Program at The University of Texas at Austin through the Planet Texas 2050 initiative.
 - We thank our collaborators at the Museum of South Texas History, Dr. Francisco Guajardo, Rene Ballesteros, Patricia Gomez, Leticia Cavazos, and Melissa Peña, for invaluable assistance in documenting the
