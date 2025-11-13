@@ -1,1 +1,77 @@
-ipyfilechooser==0.6.0
+# Semantic Bridge Analysis - Requirements
+# TACC Computational Cookbook
+# Python 3.8+ required
+
+# ==============================================================================
+# Core Scientific Computing
+# ==============================================================================
+pandas>=1.5.0,<3.0.0
+numpy>=1.23.0,<2.0.0
+
+# ==============================================================================
+# Natural Language Processing
+# ==============================================================================
+nltk>=3.8.0,<4.0.0
+spacy>=3.5.0,<4.0.0
+
+# ==============================================================================
+# Machine Learning
+# ==============================================================================
+scikit-learn>=1.2.0,<2.0.0
+
+# ==============================================================================
+# Network Analysis
+# ==============================================================================
+networkx>=3.0,<4.0.0
+
+# ==============================================================================
+# Visualization
+# ==============================================================================
+plotly>=5.14.0,<6.0.0
+
+# ==============================================================================
+# Document Processing
+# ==============================================================================
+python-docx>=0.8.11,<1.0.0
+Pillow>=9.5.0,<11.0.0
+pytesseract>=0.3.10
+
+# ==============================================================================
+# Jupyter Environment
+# ==============================================================================
+jupyter>=1.0.0
+ipykernel>=6.21.0
+ipywidgets>=8.0.0
+notebook>=6.5.0
+
+# ==============================================================================
+# Additional Dependencies (installed automatically with above packages)
+# ==============================================================================
+# matplotlib (installed with pandas/plotly)
+# scipy (installed with scikit-learn)
+# joblib (installed with scikit-learn)
+
+# ==============================================================================
+# Post-Installation Steps
+# ==============================================================================
+# After pip install, run these commands:
+# 
+# 1. Download spaCy language model:
+#    python -m spacy download en_core_web_sm
+#
+# 2. Download NLTK data (or let notebook download automatically):
+#    python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"
+#
+# 3. Verify installation:
+#    python -c "import pandas, numpy, nltk, spacy, sklearn, networkx, plotly; print('All packages imported successfully!')"
+#
+# ==============================================================================
+# Optional: OCR Support
+# ==============================================================================
+# For image-to-text conversion, you need tesseract-ocr installed:
+# - macOS: brew install tesseract
+# - Ubuntu/Debian: sudo apt-get install tesseract-ocr
+# - Windows: Download from https://github.com/UB-Mannheim/tesseract/wiki
+#
+# Note: pytesseract is optional - notebook will work without it for .txt, .json, .docx files
+# ==============================================================================
