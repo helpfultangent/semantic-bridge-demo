@@ -2,7 +2,7 @@
 
 [![TACC](https://img.shields.io/badge/TACC-UT%20Austin-BF5700?style=flat-square)](https://www.tacc.utexas.edu)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)](https://www.python.org)
-[![License](https://img.shields.io/badge/License-BSD-3Clause)](LICENSE)
+[![License](https://img.shields.io/badge/License-BSD-3Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE)
 
 ## Overview
 
