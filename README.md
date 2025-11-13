@@ -1,4 +1,4 @@
-# Semantic Bridge Analysis - TACC Computational Cookbook
+# Semantic Bridge Analysis - DSO-TACC Computational Cookbook
 
 [![TACC](https://img.shields.io/badge/TACC-UT%20Austin-BF5700?style=flat-square)](https://www.tacc.utexas.edu)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)](https://www.python.org)
