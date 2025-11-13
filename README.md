@@ -2,7 +2,7 @@
 
 [![TACC](https://img.shields.io/badge/TACC-UT%20Austin-BF5700?style=flat-square)](https://www.tacc.utexas.edu)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)](https://www.python.org)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-BSD-3Clause)](LICENSE)
 
 ## Overview
 
@@ -107,7 +107,7 @@ SVO: water_level
 ### Prerequisites
 
 **TACC Account:**
-- Active account: [Register here](https://accounts.tacc.utexas.edu/register)
+- Active account: Academic Users [Register here](https://accounts.tacc.utexas.edu/register)
 - System allocation (startup allocations available)
 - Access to TACC data portals (optional)
 
@@ -280,10 +280,12 @@ with ProcessPoolExecutor(max_workers=8) as executor:
 
 If you use this cookbook in your research, please cite:
 
+Pierce, S.A. (2025). Semantic Bridge Analysis: A Computational Cookbook for Linking Human Narratives to Scientific Data. Texas Advanced Computing Center, The University of Texas at Austin. https://github.com/helpfultangent/semantic-bridge-demo
+
 ```bibtex
 @software{semantic_bridge_2025,
   title = {Semantic Bridge Analysis: A Computational Cookbook for Linking Human Narratives to Scientific Data},
-  author = {Pierce, Suzanne and {TACC Decision Support Team}},
+  author = {Pierce, Suzanne A.}},
   year = {2025},
   institution = {Texas Advanced Computing Center, The University of Texas at Austin},
   url = {https://github.com/helpfultangent/semantic-bridge-demo}
@@ -304,13 +306,58 @@ Please submit issues or pull requests on GitHub.
 
 ## License
 
-This project is licensed under the
+BSD 3-Clause License
+
+Copyright (c) 2025, Suzanne Pierce and Texas Advanced Computing Center
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+--------------------------------------------------------------------------------
+
+CITATION REQUIREMENT
+
+While this software is licensed permissively under BSD-3-Clause, we strongly
+request that any use of this software in academic research or publications
+include proper citation. Please cite this work as:
+
+Pierce, S.A. (2025). Semantic Bridge Analysis: 
+A Computational Cookbook for Linking Human Narratives to Scientific Data. 
+Texas Advanced Computing Center, The University of Texas at Austin.
+https://github.com/helpfultangent/semantic-bridge-demo
+
+See the CITATION.cff file for structured citation information that can be
+imported into reference managers.
+
 ## Support
 
 **TACC User Support:**
-- Email: tacc-help@tacc.utexas.edu
-- Documentation: https://docs.tacc.utexas.edu
-- Training: https://learn.tacc.utexas.edu
+- Email: dso@tacc.utexas.edu
+- Documentation: TBD
+- Training: TBD
 
 **Project Issues:**
 - GitHub Issues: https://github.com/helpfultangent/semantic-bridge-demo/issues
@@ -318,7 +365,7 @@ This project is licensed under the
 ## Acknowledgments
 
 - ** Research funding supporting method development provided by:**
-- National Science Foundation, Navigating the New Arctic Program (award No).
+- National Science Foundation, Navigating the New Arctic Program (Award No 2127353).
 - The Bridging Barriers Program at The University of Texas at Austin through the Planet Texas 2050 initiative.
 - We thank our collaborators at the Museum of South Texas History, Dr. Francisco Guajardo, Rene Ballesteros, Patricia Gomez, Leticia Cavazos, and Melissa Peña, for invaluable assistance in documenting the
 Hurricane Beulah event as an initial test case. We also thank Dr. Clint Dawson for the coastal surge modeling of the Beulah case study used to initiate semantic variable object linking for the test case.
