@@ -1,7 +1,47 @@
-name: llm
+name: semantic-bridge
 channels:
   - conda-forge
+  - defaults
 dependencies:
-  - ipywidgets
-  - ipykernel
-  - jupyterlab
+  # Python version
+  - python=3.10
+  
+  # Core Scientific Computing
+  - pandas>=1.5.0
+  - numpy>=1.23.0
+  
+  # Natural Language Processing
+  - nltk>=3.8.0
+  - spacy>=3.5.0
+  
+  # Machine Learning
+  - scikit-learn>=1.2.0
+  
+  # Network Analysis
+  - networkx>=3.0
+  
+  # Visualization
+  - plotly>=5.14.0
+  
+  # Document Processing
+  - python-docx>=0.8.11
+  - pillow>=9.5.0
+  
+  # Jupyter Environment
+  - jupyter>=1.0.0
+  - ipykernel>=6.21.0
+  - ipywidgets>=8.0.0
+  - notebook>=6.5.0
+  
+  # Utilities
+  - pathlib
+  - pip
+  
+  # Install remaining packages via pip
+  - pip:
+      - pytesseract>=0.3.10
+      
+# Post-installation steps (run after conda env create):
+# 1. Activate environment: conda activate semantic-bridge
+# 2. Download spaCy model: python -m spacy download en_core_web_sm
+# 3. Download NLTK data: python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"
