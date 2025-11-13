@@ -1,6 +1,6 @@
 {
   "id": "semantic-bridge-demo-cpu",
-  "version": "sha-2cbf90f",
+  "version": "sha-2cbf90f2",
   "description": "Jupyter Lab environment for CPU",
   "owner": "${apiUserId}",
   "enabled": true,
@@ -141,7 +141,7 @@
   },
   "tags": ["portalName: ALL"],
   "notes": {
-    "label": "Cookbook - Jupyter Lab (CPU)",
+    "label": "Semantic Bridge Demo",
     "hideNodeCountAndCoresPerNode": true,
     "isInteractive": true,
     "icon": "jupyter",
