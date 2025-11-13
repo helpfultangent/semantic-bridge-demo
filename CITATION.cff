@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Semantic Bridge Analysis: A Computational Cookbook for Linking Human Narratives to Scientific Data"
+version: 1.0.0
+date-released: 2025-01-01
+url: "https://github.com/helpfultangent/semantic-bridge-demo"
+repository-code: "https://github.com/helpfultangent/semantic-bridge-demo"
+license: BSD-3-Clause
+authors:
+  - family-names: Pierce
+    given-names: Suzanne
+    email: sawp@tacc.utexas.edu
+    affiliation: "Texas Advanced Computing Center, The University of Texas at Austin"
+    orcid: "https://orcid.org/0000-0002-XXXX-XXXX"  # Replace with your actual ORCID
+  - name: "TACC Decision Support Team"
+    affiliation: "Texas Advanced Computing Center, The University of Texas at Austin"
+keywords:
+  - natural language processing
+  - semantic linking
+  - decision support
+  - scientific variable objects
+  - computational cookbooks
+  - TACC
+  - stakeholder engagement
+  - topic modeling
+  - environmental planning
+abstract: >
+  Semantic Bridge Analysis is a computational workflow that bridges the
+  semantic gap between human narratives and scientific analysis. Using
+  Natural Language Processing and Machine Learning, this TACC Computational
+  Cookbook enables researchers and decision-makers to systematically translate
+  stakeholder experiences—expressed in everyday language—into actionable
+  scientific data, models, and decision frameworks. The workflow automatically
+  discovers key themes in community narratives, identifies decision components,
+  maps concepts to scientific disciplines, and creates semantic links between
+  natural language terms and standardized Scientific Variable Objects that
+  connect directly to data sources and computational models.
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Pierce
+      given-names: Suzanne
+    - name: "TACC Decision Support Team"
+  title: "Semantic Bridge Analysis: A Computational Cookbook for Linking Human Narratives to Scientific Data"
+  year: 2025
+  publisher:
+    name: "Texas Advanced Computing Center"
+  institution:
+    name: "The University of Texas at Austin"
+  url: "https://github.com/helpfultangent/semantic-bridge-demo"
